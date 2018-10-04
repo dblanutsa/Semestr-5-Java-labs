@@ -6,26 +6,18 @@ import com.gmail.blanutsa.dmitriy.view.View;
 
 public class Controller {
 
-    private View view = new View();
-    private Matrix matrix;
-    private MatrixService matrixService;
+    private View view;
+    private MatrixService matrixService = new MatrixService();
 
-    public Controller(Matrix matrix) {
-        this.matrix = matrix;
-        matrixService = new MatrixService(matrix);
-    }
-
-    public Controller(Matrix matrix, View view) {
-        this.matrix = matrix;
+    public Controller(View view) {
         this.view = view;
-        matrixService = new MatrixService(matrix);
     }
 
-    public void execute() {
+    public void execute(Matrix matrix) {
         view.showText("Source matrix:\r\n");
         view.showMatrix(matrix);
 
-        matrixService.sortRowsMatrixByIndex(matrix.getParametr());
+        matrixService.sortRowsMatrixByIndex(matrix);
 
         view.showText("Result matrix:\r\n");
         view.showMatrix(matrix);

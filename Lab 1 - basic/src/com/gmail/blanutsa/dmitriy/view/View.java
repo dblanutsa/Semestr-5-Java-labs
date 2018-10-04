@@ -2,19 +2,9 @@ package com.gmail.blanutsa.dmitriy.view;
 
 import com.gmail.blanutsa.dmitriy.model.Matrix;
 
-public class View {
+public interface View {
 
-    public void showMatrix(Matrix matrix) {
-        for (short[] row : matrix.getData()) {
-            for (short element : row) {
-                System.out.printf("%5d ", element);
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
+    void showMatrix(Matrix matrix);
 
-    public void showText(String text) {
-        System.out.println(text);
-    }
+    void showText(String text);
 }
